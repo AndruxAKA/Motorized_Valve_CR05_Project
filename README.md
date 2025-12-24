@@ -42,10 +42,12 @@ The system requires **7 GPIO pins**:
 
 **L29xx Motor Driver Wiring:**
 ![L29xx Motor Driver](L29xx%20Motor%20Driver.png)
+
 *You can use the 5V output from the L298N driver to power your ESP32.*
 
 **Schematic Diagram:**
 ![Schematic Diagram](Schematic%20Diagram01.png)
+
 *Note: The connections in the schematic are symbolic. Please refer to the YAML file for the exact GPIO pin mappings.*
 
 ## Important Configuration Notes
