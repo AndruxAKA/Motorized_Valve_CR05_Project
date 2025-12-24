@@ -1,0 +1,147 @@
+esphome:
+  name: valve01
+  friendly_name: Valve Control 01
+  on_boot:
+    priority: -100
+    then:
+      - delay: 2s
+      - logger.log: "Valve-01 started. Checking limit switches..."
+      - if:
+          condition:
+            binary_sensor.is_off: limit_closed
+          then:
+            - logger.log: "Valve is not closed. Initiating closing process."
+            - output.turn_on: motor_in2
+            - output.turn_off: motor_in1
+            - output.set_level:
+                id: motor_pwm
+                level: 1.0
+            - wait_until:
+                condition:
+                  binary_sensor.is_on: limit_closed
+                timeout: 10s
+            - logger.log: "Limit switch triggered. Braking motor."
+            # Stop and brake the motor
+            - output.set_level:
+                id: motor_pwm
+                level: 1.0
+            - output.turn_on: motor_in1
+            - output.turn_on: motor_in2
+          else:
+            - logger.log: "Valve-01 is already closed. Motor not started."
+
+esp32:
+  board: lolin32
+
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "zh4qIZAXF5U7i7aKEy7lNwdja3FE+QXFysMG/rEw6g4="
+
+ota:
+  - platform: esphome
+    password: "aaad02d179573dd59266694e4502fcb5"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Valve-Control-01 Fallback Hotspot"
+    password: "nFeJhTKnRUmn"
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 32
+      mode: INPUT_PULLUP
+      inverted: true
+    id: limit_open
+    name: "Open Limit Switch"
+  - platform: gpio
+    pin:
+      number: 33
+      mode: INPUT_PULLUP
+      inverted: true
+    id: limit_closed
+    name: "Closed Limit Switch"
+
+output:
+  - platform: gpio
+    pin: 26
+    id: motor_in1
+  - platform: gpio
+    pin: 27
+    id: motor_in2
+  - platform: ledc
+    pin: 25
+    id: motor_pwm
+    frequency: 1000 Hz
+
+globals:
+  - id: motor_direction
+    type: int
+    restore_value: no
+    initial_value: '0'  # 0: stopped, 1: opening, -1: closing
+
+interval:
+  - interval: 20ms
+    then:
+      - lambda: |-
+          // Opening limit switch check (inverted logic: Pressed=ON=True)
+          if (id(motor_direction) == 1 && id(limit_open).state) {
+            ESP_LOGI("limit", "Opening limit triggered -> motor braking.");
+            id(motor_pwm).set_level(1.0);
+            id(motor_in1).turn_on();
+            id(motor_in2).turn_on();
+            id(motor_direction) = 0;
+          }
+
+          // Closing limit switch check (inverted logic: Pressed=ON=True)
+          if (id(motor_direction) == -1 && id(limit_closed).state) {
+            ESP_LOGI("limit", "Closing limit triggered -> motor braking.");
+            id(motor_pwm).set_level(1.0);
+            id(motor_in1).turn_on();
+            id(motor_in2).turn_on();
+            id(motor_direction) = 0;
+          }
+
+switch:
+  - platform: template
+    name: "Open Valve"
+    turn_on_action:
+      - logger.log: "Valve-01 opening (full speed start)"
+      - globals.set:
+          id: motor_direction
+          value: '1'
+      - output.turn_on: motor_in1
+      - output.turn_off: motor_in2
+      - output.set_level:
+          id: motor_pwm
+          level: 1.0
+      - delay: 1s
+      - logger.log: "Valve-01 switching to slow speed mode (if configured)" # Retaining logic but clarifying log
+      - output.set_level:
+          id: motor_pwm
+          level: 1.0
+
+  - platform: template
+    name: "Close Valve"
+    turn_on_action:
+      - logger.log: "Valve-01 closing (full speed start)"
+      - globals.set:
+          id: motor_direction
+          value: '-1'
+      - output.turn_off: motor_in1
+      - output.turn_on: motor_in2
+      - output.set_level:
+          id: motor_pwm
+          level: 1.0
+      - delay: 1s
+      - logger.log: "Valve-01 switching to slow speed mode (if configured)"
+      - output.set_level:
+          id: motor_pwm
+          level: 1.0
