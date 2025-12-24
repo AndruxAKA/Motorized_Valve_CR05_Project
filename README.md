@@ -63,11 +63,11 @@ The system requires **7 GPIO pins**:
 
 ### 1. Initial Testing (Critical)
 **Before permanently installing:**
-Open the valve housing and separate the motor/gearbox from the valve mechanism if possible, OR just dry run it.
+Open the valve housing and separate the motor/gearbox from the valve mechanism if possible, than;
 *   Power up the system.
 *   Send an **"Open"** command.
 *   Manually trigger the **"Open Limit Switch"**. The motor **MUST STOP**.
-*   If the motor stops when you trigger the *Closed* switch instead, your limit switches are wired in reverse. Swap the connections.
+*   If the motor stops when you trigger the *Closed* switch instead, your limit switches are wired in reverse. Swap the connections or change your gpio definations from the yaml file. 
 
 ### 2. Logic Explanation
 The ESPHome configuration uses an "inverted" logic for the limit switches (assuming `INPUT_PULLUP`):
